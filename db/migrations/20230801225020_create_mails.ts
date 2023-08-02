@@ -10,7 +10,7 @@ export async function up(knex: Knex): Promise<void> {
         table.string('description').notNullable();
         table.dateTime('date_time').notNullable();
         table.boolean('is_in_diet').notNullable();
-        table.integer('user_id').unsigned().index().notNullable();
+        table.uuid('user_id').index().notNullable();
         table.foreign('user_id').references('id').inTable('users').onDelete('CASCADE');
     });
 }
